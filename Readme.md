@@ -27,8 +27,8 @@ de qualquer cidadão delegar os seus votos a um delegado, seja na totalidade, ou
 obras públicas, imigração, etc...).
 
 ## Para isso foi pedido a implementação de um Software que faça a gestão dos eleitores, delegados, propostas e votos. 
-## Este sistema precisa de satisfazer certas propriedades como: segurança, privacidade, escalabilidade de performance 
-## (temos 10 milhões de habitantes com várias propostas por dia!), integração com outros sistemas do governo, etc...
+Este sistema precisa de satisfazer certas propriedades como: segurança, privacidade, escalabilidade de performance 
+(temos 10 milhões de habitantes com várias propostas por dia!), integração com outros sistemas do governo, etc...
 
 
 # Requisitos Funcionais (Casos de Uso):

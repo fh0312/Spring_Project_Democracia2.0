@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1" />
+		<link href="css/proj_list.css" rel="stylesheet" />
+		<title>Democracia2.0</title>
+	</head>
+<body>
+	<section>
+		<h2>Projetos:</h2>
+		<div th:if="${projetos.empty}">
+			<td colspan="3">Não existem projetos</td>
+		</div>
+		<div th:each="projeto : ${projetos}">
+			<a th:text="${projeto.name}" th:href="@{/projeto/{id}(id=${projeto.getId()})}">
+			<br>
+		</div>
+	</section>
+</body>
+
+</html>

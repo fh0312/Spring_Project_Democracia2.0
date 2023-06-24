@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt_PT">
+
+<head>
+    <meta charset="ISO-8859-1" />
+    <link href="css/escolherDel.css" rel="stylesheet" />
+    <title>Democracia2.0</title>
+</head>
+    <body>
+        <h2>Escolha um novo delegado para um tema:</h2>
+        <p>Insira o nº CC da pessoa e escolha o tema</p>
+        <form action="#" th:action="@{/escolher/del}" method="post">
+            <label for="cc">Cartão de Cidadão:</label><br>
+            <input type="text" id="cc" name="delCC">
+            <p>Tema:</p><br>
+            <div th:each="tema : ${temas}">
+                <input name="temaId" type="radio" th:value="${tema.getId()}" th:text="${tema.getName()}">
+            </div><br>
+            <input type="submit" value="Submeter">
+        </form>
+        <div th:if="${mensagem}">
+            <p th:text="${mensagem}" class="success-message"></p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt_PT">
+
+<head>
+    <meta charset="ISO-8859-1" />
+    <link href="css/apresentarProj.css" rel="stylesheet" />
+    <title>Democracia2.0</title>
+</head>
+
+<body>
+    <h2>Apresente um Projeto de Lei:</h2>
+
+    <form action="#" th:action="@{/apresentarproj}" method="post">
+        <label for="title">Título:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="descText">Descrição:</label><br>
+        <input type="text" id="descText" name="descText"><br>
+        <label for="date">Data de Expiração:</label><br>
+        <input type="date" id="date" name="date"><br>
+        <p>Tema:</p><br>
+        <div th:each="tema : ${temas}">
+            <input name="temaId" type="radio" th:value="${tema.getId()}" th:text="${tema.getName()}">
+        </div>
+        <input type="submit" value="Submeter">
+    </form>
+
+    <div th:if="${mensagem}">
+        <p th:text="${mensagem}" class="success-message"></p>
+    </div>
+</body>
+
+</html>

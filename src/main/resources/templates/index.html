@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt_PT">
+
+<head>
+    <meta charset="ISO-8859-1" />
+    <link href="css/index.css" rel="stylesheet" />
+    <title>Democracia2.0</title>
+</head>
+
+<body>
+    <h1>DEMOCRACIA 2.0</h1>
+    <div th:if="${user}" class="content">
+        <a href="/projeto">Todos os projetos</a>
+        <br>
+        <a href="/votes">Projetos em votação</a>
+        <br>
+        <a href="/escolherDel">Escolher um novo delegado</a>
+        <br>
+        <a th:if="${user.isDelegado()}" href="/apresentar">Apresentar um projeto</a>
+
+    </div>
+
+    <div class="login" th:unless="${user}">
+        <form action="#" th:action="@{/login}" method="post">
+            <label for="username">CC:</label>
+            <input type="text" id="username" name="username" required/>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div th:if="${user}" class="login">
+        <form action="#" th:action="@{/logout}" method="post">
+            <button type="submit">Logout !</button>
+        </form>
+    </div>
+
+
+
+
+    
+</body>
+
+</html>

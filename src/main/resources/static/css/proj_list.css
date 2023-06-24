@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #f1f1f1;
+}
+
+h2 {
+    font-variant: small-caps;
+    color: #333;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+section {
+    margin-top: 20px;
+}
+
+div.empty-message {
+    color: #333;
+    font-weight: bold;
+}
+
+div.project {
+    margin-bottom: 10px;
+}
+
+a {
+    font-variant: small-caps;
+    font-size: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+br {
+    margin-bottom: 5px;
+}

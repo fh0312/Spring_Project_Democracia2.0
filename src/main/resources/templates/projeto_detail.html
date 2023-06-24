@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt_PT">
+
+<head>
+    <meta charset="ISO-8859-1" />
+    <link href="css/projetoDetail.css" rel="stylesheet" />
+    <title>Democracia2.0</title>
+</head>
+    <body>
+    <section>
+        <h2>Customer:</h2>
+        <table>
+            
+            <tr>
+                <th>Titulo:</th>
+                <td th:text="${projeto.getName()}"></td>
+            </tr>
+            <tr>
+                <th>Descrição:</th>
+                <td th:text="${projeto.getTexto()}"></td>
+            </tr>
+            <tr>
+                <th>Validade:</th>
+                <td th:text="${projeto.getValidade()}"></td>
+            </tr>
+            <tr>
+                <th>Id:</th>
+                <td th:text="${projeto.getId()}"></td>
+            </tr>
+
+
+        </table>
+       
+        <div th:if="${projeto.isOnApproval()}">
+            <form action="#" th:action="@{/projeto/apoiar}" method="post">
+                <input type="hidden" name="projetoId" th:value="${projeto.getId()}" /> <!-- Substitua o valor "1" pelo ID do projeto desejado -->
+                <button type="submit">Apoiar Projeto !</button>
+            </form>
+		</div>
+        <div th:if="${projeto.isOnVote()}">
+            <div th:text="${votoOmissao}"></div>
+			<form action="#" th:action="@{/projeto/votar}" method="post">
+                <input type="hidden" name="projetoId" th:value="${projeto.getId()}"/>
+                <label for="favor">Favor</label>
+                <input type="radio" id="favor" name="voto" th:value="${favor}">
+                <label for="contra">Contra</label>
+                <input type="radio" id="contra" name="voto" th:value="${contra}">
+                <br>
+                <button type="submit">Votar !</button>
+            </form>
+		</div>
+
+        
+
+        <div th:if="${mensagem}">
+            <p th:text="${mensagem}" class="success-message"></p>
+        </div>
+        
+        
+    </section>
+</body>
+
+</html>

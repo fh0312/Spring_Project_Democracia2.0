@@ -1,6 +1,6 @@
-# Projecto de Referência de SpringBoot
+# DEMOCRACIA 2.0 --> Projecto de Referência de SpringBoot
 
-# Fase-1 - UC: Construção de Sistemas de Software
+# UC: Construção de Sistemas de Software
 
 ## *Autores:*
 ###     Alexandre Müller 	- fc56343
@@ -9,9 +9,7 @@
  
 # Descrição:
 
-## Dada a baixa taxa de abstenção nas últimas eleições (44% em 2015, 51% em 2019 e 49% em 2022 1) e 
-## devido à insatisfação da população com a sua representação política, a Comissão Nacional de Eleições está
-## a estudar um modelo alternativo de representatividade. A sua equipa foi escolhida para fazer o desenvolvimento da plataforma teste.
+### Dada a baixa taxa de abstenção nas últimas eleições (44% em 2015, 51% em 2019 e 49% em 2022 1) e  devido à insatisfação da população com a sua representação política, a Comissão Nacional de Eleições está a estudar um modelo alternativo de representatividade. A sua equipa foi escolhida para fazer o desenvolvimento da plataforma teste.
 
 No modelo proposto, pretende-se que os eleitores tenham a hipótese de votar directamente em todas as
 propostas de lei que vão a votação actualmente no parlamento. Assim, cada cidadão poderá fazer-se ouvir
@@ -26,9 +24,7 @@ não foram copiados de outros delegados) passam a ser públicos. No entanto pass
 de qualquer cidadão delegar os seus votos a um delegado, seja na totalidade, ou por tema (saúde, educação,
 obras públicas, imigração, etc...).
 
-## Para isso foi pedido a implementação de um Software que faça a gestão dos eleitores, delegados, propostas e votos. 
-Este sistema precisa de satisfazer certas propriedades como: segurança, privacidade, escalabilidade de performance 
-(temos 10 milhões de habitantes com várias propostas por dia!), integração com outros sistemas do governo, etc...
+### Para isso foi pedido a implementação de um Software que faça a gestão dos eleitores, delegados, propostas e votos. Este sistema precisa de satisfazer certas propriedades como: segurança, privacidade, escalabilidade de performance (temos 10 milhões de habitantes com várias propostas por dia!), integração com outros sistemas do governo, etc...
 
 
 # Requisitos Funcionais (Casos de Uso):

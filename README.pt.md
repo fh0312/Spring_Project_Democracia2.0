@@ -1,7 +1,7 @@
 
 > 📘 **Portuguese Version**  
 > This document is the Portuguese version of the original project README.  
-> Looking for the English version? [Click here  🇬🇧](./README.md)
+> Looking for the English version? [Click here  🇬🇧](./Readme.md)
 
 # DEMOCRACIA 2.0 --> Projecto de Referência de SpringBoot
 

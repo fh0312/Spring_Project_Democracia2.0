@@ -54,28 +54,25 @@ Non-Functional Requirements:
 
 ⸻
 
-How to Run the Project:
+# How to run the project:
 
-Step 1
+## First step
 
-Run the script setup.sh
+Run the script `setup.sh`.
 
-Step 2
+## Second step
 
-Run the script run.sh
+Run the script `run.sh`.
 
-This will start two containers:
-	•	One with the application.
-	•	One with a PostgreSQL instance.
+This command will start two containers:
 
-Step 3
+* One with the application in this folder.
+* An instance of a Postgres container.
 
-If you want to use the Web Application:
+## Third step
 
-Open: http://localhost:8080
+### If you want to use the WEB application:
+    Open http://localhost:8080 ;
 
-If you want to use the Desktop Application (which uses a REST API):
-
-Run:
-
-mvn clean javafx:run
+### If you want to use the Desktop application (which uses a REST API):
+    Run the command: "mvn clean javafx:run"

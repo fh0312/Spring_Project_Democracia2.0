@@ -1,3 +1,8 @@
+
+> 📘 **English Version**  
+> This document is the English version of the original project README.  
+> Looking for the Portuguese version? [Click here 🇵🇹](./README.pt.md)
+
 # DEMOCRACIA 2.0 --> Projecto de Referência de SpringBoot
 
 # UC: Construção de Sistemas de Software

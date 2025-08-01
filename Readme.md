@@ -3,119 +3,79 @@
 > This document is the English version of the original project README.  
 > Looking for the Portuguese version? [Click here 🇵🇹](./README.pt.md)
 
-# DEMOCRACIA 2.0 --> Projecto de Referência de SpringBoot
+DEMOCRACY 2.0 –> SpringBoot Reference Project
 
-# UC: Construção de Sistemas de Software
+UC: Software Systems Construction
 
-## *Autores:*
-###     Alexandre Müller 	- fc56343
-###     Diogo Ramos 			- fc56308
-###     Francisco Henriques 	- fc56348       
- 
-# Descrição:
+Authors:
+	•	Alexandre Müller - fc56343
+	•	Diogo Ramos - fc56308
+	•	Francisco Henriques - fc56348
 
-### Dada a baixa taxa de abstenção nas últimas eleições (44% em 2015, 51% em 2019 e 49% em 2022 1) e  devido à insatisfação da população com a sua representação política, a Comissão Nacional de Eleições está a estudar um modelo alternativo de representatividade. A sua equipa foi escolhida para fazer o desenvolvimento da plataforma teste.
+⸻
 
-No modelo proposto, pretende-se que os eleitores tenham a hipótese de votar directamente em todas as
-propostas de lei que vão a votação actualmente no parlamento. Assim, cada cidadão poderá fazer-se ouvir
-sobre cada assunto que lhe diz respeito. Este modelo é superior ao actual em virtude de que ao escolher um
-representante, o cidadão está a atribuir todos os seus votos à(s) mesma(s) pessoa(s), independentemente
-do tema. Com o novo modelo, o cidadão pode escolher uma sequência de votos que não corresponderia a
-nenhum deputado, até mesmo os que não o representam. No entanto, ao perder o conceito de deputados, também se perde a vantagem dos cidadãos não terem de se
-preocupar com todos os aspectos da governação e legislação. Muito do trabalho dos deputados é de desenho
-de propostas, estudo para compreensão das mesmas e estudo do impacto que têm na vida dos portugueses.
-De forma a manter a hipótese de delegar votos, é possível uma pessoa voluntariar-se como delegado (semelhante ao papel do actual deputado, mas sem eleições). Como delegado, os seus votos explicitos (i.e., que
-não foram copiados de outros delegados) passam a ser públicos. No entanto passa a existir a possibilidade
-de qualquer cidadão delegar os seus votos a um delegado, seja na totalidade, ou por tema (saúde, educação,
-obras públicas, imigração, etc...).
+Description:
 
-### Para isso foi pedido a implementação de um Software que faça a gestão dos eleitores, delegados, propostas e votos. Este sistema precisa de satisfazer certas propriedades como: segurança, privacidade, escalabilidade de performance (temos 10 milhões de habitantes com várias propostas por dia!), integração com outros sistemas do governo, etc...
+Due to the high abstention rate in recent elections (44% in 2015, 51% in 2019, and 49% in 2022), and general dissatisfaction with political representation, the National Elections Commission is exploring an alternative representational model. Your team was selected to develop the test platform.
 
+In this proposed model, citizens will have the opportunity to vote directly on every law proposal that is currently voted on in Parliament. This allows each citizen to express their opinion on specific topics. Unlike the current model, where selecting a representative delegates all votes to them regardless of topic, the new model enables citizens to express a voting sequence not aligned with any single representative.
 
-# Requisitos Funcionais (Casos de Uso):
-(Existiam 3 casos de uso anteriores relativos à integração com sistemas de autorização do governo português mas como não foram aprovados
-não serão implementados)
+However, without representatives, citizens must be more involved in legislation. To mitigate this, individuals can volunteer as delegates (similar to current MPs, but without elections). Their explicit votes become public, and citizens can delegate their vote to a delegate either completely or by topic (e.g., health, education, infrastructure, immigration, etc).
 
-D. (F1) Listar as votações em curso. Este caso de uso permite obter uma listagem das propostas de lei
-em votação neste momento.
+The project involves building a software system to manage citizens, delegates, proposals, and votes. It must fulfill key requirements such as security, privacy, scalability (Portugal has 10 million residents), and integration with other government systems.
 
-E. (F1) Apresentar um projecto de lei. Neste caso de uso, um delegado poderá propor um projecto
-de lei. Um projecto de lei é constituído por um título, um texto descriptivo, um anexo PDF com o
-conteúdo principal do projecto de lei, uma data e hora de validade (máximo de um ano), um tema
-associado e o delegado proponente.
+⸻
 
-F. (F1) Fechar projectos de lei expirados. Todos os projectos de lei cuja data limite já tenha decorrido
-deverão ser fechados, sendo que não podem receber mais nenhuma assinatura.
+Functional Requirements (Use Cases):
 
-G. (F1) Consultar projectos de lei. Deve ser possível listar e consultar os projectos de lei não expirados.
+Note: Three use cases related to integration with government authorization systems were dropped and will not be implemented.
 
-H. (F1) Apoiar projectos de lei. Cada projecto de lei pode ser apoiado por cidadãos (no limite de 1 apoio
-por cidadão). Quando um projecto de lei tiver pelo menos 10.000 apoios, é criada uma votação para
-esse projecto de lei imediatamente, com uma data de fecho igual à data de expiração do projecto de
-lei, com um limite mínimo de 15 dias e um limite máximo de 2 meses. Ao abrir a votação, é lançado
-automàticamente o voto do delegado proponente, como favorável.
+	•	(F1) List Active Votes: List all law proposals currently open for voting.
+	•	(F1) Submit a Law Proposal: Delegates can propose laws. Each proposal must include a title, description, PDF attachment, expiration date (max 1 year), topic, and the proposing delegate.
+	•	(F1) Close Expired Proposals: All proposals past their expiration date must be closed and can no longer receive support.
+	•	(F1) View Law Proposals: List and consult non-expired law proposals.
+	•	(F1) Support Law Proposals: Citizens can support one proposal each. If a proposal receives 10,000 supports, a vote is created for it, expiring on the proposal’s expiration date (min 15 days, max 2 months). The proposing delegate automatically casts a favorable vote.
+	•	(F1) Choose a Delegate: A citizen can select one delegate per topic (e.g., Health, Education). When a vote closes and the citizen hasn’t voted, a vote is cast automatically based on the most specific applicable delegate.
+	•	(F1) Vote on a Proposal: Citizens view active votes, check their default vote (based on delegate), and vote (for or against; no blank/null votes). The system checks whether the citizen already voted but does not store their vote choice. If the voter is also a delegate, their vote is public.
+	•	(F1) Close a Vote: When voting closes, delegate votes are applied to citizens who didn’t vote. Votes are counted. If over 50% are favorable, the proposal is approved; otherwise, it’s rejected.
 
-I. (F1) Escolher delegado. Um cidadão pode escolher vários delegados, mas apenas um para cada
-tema. Ou seja, pode ter um delegado para o tema de Saúde, um para Educação e um para outros
-temas. Quando fecha uma votação onde o cidadão não votou, é feito um voto automático com base
-no delegado do tema mais específico da proposta de lei.
+⸻
 
-J. (F1) Votar numa proposta. Um cidadão deve pedir uma listagem das votações e escolher a que lhe
-interessa. Deverá ver qual o voto por omissão caso não o faça explicitamente (isto é, o voto do seu
-delegado para o tópico), caso este esteja disponível. Caso não concorde, o cidadão poderá lançar o seu
-voto (favorável ou desfavorável, não existem votos em branco nem nulos) numa proposta concreta.
-Deve ser verificado se o cidadão já votou nesta proposta em concreto, mas não deve ser registado em
-que opção foi o voto (dica: poderá ter de dividir o voto em duas partes, a do cidadão e a do conteúdo).
-Se o cidadão for também um delegado, então deverá ser registado um voto público, que qualquer um
-poderá confirmar.
+Non-Functional Requirements:
+	•	Votes from regular citizens must remain secret. The database should only record that a citizen voted, not their vote.
+	•	All data must be stored in a relational database.
+	•	The platform must be implemented using Spring Boot and Java for cost-effectiveness and hiring ease.
+	•	The data layer must use JPA and Spring Data.
+	•	The business logic layer must follow the Domain Model pattern, with metadata sufficient for JPA to handle database mapping.
+	•	A REST API should be exposed for interaction via web or mobile clients.
+	•	Only code meeting the team’s quality standards should be accepted via pre-commit.
+	•	The project must run inside Docker, which will also be the deployment method.
+	•	Participation control will be monitored via Git repository activity.
 
-K. (F1) Fechar uma votação. Assim que termina o prazo de uma votação, são atribuídos os votos dos
-delegados para cada cidadão que não tenha votado explicitamente. Depois são contados os votos,
-e se mais de metade dos votos forem favoráveis, então a proposta é fechada como aprovada. Caso
-contrário é fechada como rejeitada.
+⸻
 
+How to Run the Project:
 
-# Requisitos Não Funcionais
+Step 1
 
-• Os votos dos não delegados deverão ser secretos. A base de dados não deverá guardar qual foi o voto
-de cada cidadão, apenas que votou, e o total dos votos favoráveis e desfavoráveis.
-• Toda a informação deverá ser armazenada numa base de dados relacional.
-• A plataforma deverá ser implementada em Spring Boot, de forma a ter um custo de desenvolvimento
-baixo, e a usar a linguagem Java, que é a linguagem para a qual é mais fácil de contratar engenheiros.
-• A camada de dados deverá usar JPA e Spring Data.
-• A camada de negócios deverá usar o Domain Model, com meta-dados suficientes para que o JPA faça
-o mapeamento para a base de dados.
-• Deverá ser exposta uma API REST que os clientes (web ou mobile) poderão usar para interagir com a
-aplicação.
-• O repositório deverá aceitar apenas código com o nível de qualidade aceite pela equipa (usando o
-pre-commit).
-• O projecto deverá correr dentro de um docker, que será a forma como vai ser deployed no servidor de
-produção.
-• O controlo da participação de cada membro da equipa será feita através da actividade no repositório
-git.
+Run the script setup.sh
 
+Step 2
 
-# Como executar o projeto:
+Run the script run.sh
 
-## Primeiro passo
+This will start two containers:
+	•	One with the application.
+	•	One with a PostgreSQL instance.
 
-Correr o script `setup.sh`.
+Step 3
 
-## Segundo passo 
+If you want to use the Web Application:
 
-Correr o script `run.sh`.
+Open: http://localhost:8080
 
-Este comando vai iniciar dois containers:
+If you want to use the Desktop Application (which uses a REST API):
 
-* Um com a aplicação que existe nesta pasta.
-* Uma instância de um container com Postgres.
+Run:
 
-## Terceiro passo
-
-### Caso queira utlizar a aplicação WEB:
-    Abrir http://localhost:8080 ;
-
-### Caso queira utlizar a aplicação Desktop (que utiliza uma api REST):
-    Correr o comando : "mvn clean javafx:run" 
-
-
+mvn clean javafx:run
